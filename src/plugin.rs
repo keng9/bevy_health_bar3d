@@ -62,7 +62,7 @@ fn spawn<T: Percentage + Component + TypePath>(
     mut meshes: ResMut<Assets<Mesh>>,
     mut mesh_handles: ResMut<MeshHandles>,
     color_scheme: Res<ColorScheme<T>>,
-    query: Query<(Entity, &T, &BarSettings<T>), Added<T>>,
+    query: Query<(Entity, &T, &BarSettings<T>), Added<BarSettings<T>>>,
 ) {
     query.iter().for_each(|(entity, percentage, settings)| {
         let width = settings.normalized_width();
